@@ -16,21 +16,21 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   
-    <meta name="description" content="汇总AcWing题目题解以及知识点总结，用于个人复习回顾。">
+    <meta name="description" content="本文介绍了如何通过「试除法」来判定质数。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AcWing算法基础课知识点汇总">
-<meta property="og:url" content="https://s1mplebug.github.io/2023/08/06/AcWing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:title" content="866.试除法判定质数">
+<meta property="og:url" content="https://s1mplebug.github.io/2023/08/06/866-%E8%AF%95%E9%99%A4%E6%B3%95%E5%88%A4%E5%AE%9A%E8%B4%A8%E6%95%B0/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="汇总AcWing题目题解以及知识点总结，用于个人复习回顾。">
+<meta property="og:description" content="本文介绍了如何通过「试除法」来判定质数。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-06T11:24:18.000Z">
-<meta property="article:modified_time" content="2023-08-06T11:37:26.990Z">
-<meta property="article:tag" content="无标签">
+<meta property="article:published_time" content="2023-08-06T12:11:33.000Z">
+<meta property="article:modified_time" content="2023-08-06T12:13:31.746Z">
+<meta property="article:tag" content="质数">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>AcWing算法基础课知识点汇总 - </title>
+  <title>866.试除法判定质数 - </title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -223,7 +223,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="AcWing算法基础课知识点汇总"></span>
+            <span id="subtitle" data-typed-text="866.试除法判定质数"></span>
           
         </div>
 
@@ -234,7 +234,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-06 19:24" pubdate>
+        <time datetime="2023-08-06 20:11" pubdate>
           2023年8月6日 晚上
         </time>
       </span>
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          178 字
+          1.1k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          2 分钟
+          10 分钟
         
       </span>
     
@@ -294,26 +294,66 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">AcWing算法基础课知识点汇总</h1>
+            <h1 id="seo-header">866.试除法判定质数</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="算法知识点讲解">算法知识点讲解</h2>
+                <p>时/空限制：1s / 64MB</p>
+<h2 id="题目描述">题目描述</h2>
+<p>给定n个正整数<span
+class="math inline">\(a_i\)</span>，判定每个数是否是质数。</p>
+<h2 id="输入格式">输入格式</h2>
+<p>第一行包含整数<span class="math inline">\(n\)</span>。</p>
+<p>接下来<span
+class="math inline">\(n\)</span>行，每行包含一个正整数<span
+class="math inline">\(a_i\)</span>。</p>
+<h2 id="输出格式">输出格式</h2>
+<p>共<span class="math inline">\(n\)</span>行，其中第 <span
+class="math inline">\(i\)</span> 行输出第 <span
+class="math inline">\(i\)</span> 个正整数<span
+class="math inline">\(a_i\)</span>是否为质数，是则输出「Yes」，否则输出「No」。</p>
+<h2 id="数据范围">数据范围</h2>
+<p><span class="math inline">\(1 \le n \le 100\)</span>, <span
+class="math inline">\(1 \le a_i \le 2\times10^9\)</span></p>
+<h2 id="输入样例">输入样例</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">2<br>2<br>6<br></code></pre></td></tr></table></figure>
+<h2 id="输出样例">输出样例</h2>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-keyword">Yes</span><br><span class="hljs-keyword">No</span><br></code></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 暴力O(n)</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">is_prime</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span>(n &lt; <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt; n; ++i) &#123; <span class="hljs-comment">// 这里是&lt; 不是&lt;=</span><br>		<span class="hljs-keyword">if</span>(n % i == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>以上暴力做法「时间复杂度太高」，可根据「质数性质」对其优化。</p>
+<blockquote>
+<p><strong>质数性质</strong>：假设 <span
+class="math inline">\(|\)</span> 为整除符号，若 <span
+class="math inline">\(d | n\)</span> 成立，则 <span
+class="math inline">\(\frac{n}{d} | n\)</span> 成立。 举例：假设 <span
+class="math inline">\(n = 12\)</span>，若 <span
+class="math inline">\(2\)</span> 为 <span
+class="math inline">\(12\)</span> 的约数，那 <span
+class="math inline">\(6\)</span> 也是 <span
+class="math inline">\(12\)</span> 的约数；若 <span
+class="math inline">\(3\)</span> 为 <span
+class="math inline">\(12\)</span> 的约数，那 <span
+class="math inline">\(4\)</span> 也是 <span
+class="math inline">\(12\)</span>
+的约数。可发现「约数都是成对出现」。所以在枚举时，只需枚举出「成对约数」中较小的那一个即可。假设
+<span class="math inline">\(d\)</span> 为较小的数，即满足 <span
+class="math inline">\(d \le \frac{n}{d}\)</span>，此时要枚举区间 <span
+class="math inline">\([2, d]\)</span> 的所有正整数，整理得：<span
+class="math inline">\(d \le \sqrt{n}\)</span>，因此只需枚举区间 <span
+class="math inline">\([2, \sqrt{n}]\)</span> 范围的数即可。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 优化O(sqrt(n))</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">is_prime</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>	<span class="hljs-keyword">if</span>(n &lt; <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n/i; ++i) &#123; <span class="hljs-comment">// 不推荐i*i &lt;= n的写法 和 i &lt;= sqrt(n)的写法</span><br>		<span class="hljs-keyword">if</span>(n % i == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
-<li><a
-href="https://s1mplebug.github.io/2023/08/06/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%A8%A1%E6%9D%BF/">二分查找模板</a></li>
-</ul>
-<h2 id="题目">题目</h2>
-<h3 id="第二讲-数据结构">第二讲 数据结构</h3>
+<li>循环终止条件用 <code>i &lt;= n/i</code> 最好，原因如下：
 <ul>
-<li><a href="">单链表</a></li>
-</ul>
-<h3 id="第四讲-数学知识">第四讲 数学知识</h3>
-<ul>
-<li><a href="">试除法判定质数</a></li>
-<li><a href="">分解质因数</a></li>
-<li><a href="">质数筛</a></li>
+<li>若使用 <code>i &lt;= sqrt(n)</code>，每次循环都会使用 sqrt
+函数计算，产生时间开销。</li>
+<li>若使用 <code>i*i &lt;= n</code>，<code>i*i</code>
+可能会造成数值溢出。</li>
+</ul></li>
+<li><code>x &lt; 2</code>时直接返回<code>false</code>。</li>
 </ul>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4R6NZH87R3"></script>
@@ -342,7 +382,7 @@ href="https://s1mplebug.github.io/2023/08/06/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%B
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" class="category-chain-item">未分类</a>
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="category-chain-item">数据结构与算法</a>
   
   
 
@@ -357,7 +397,7 @@ href="https://s1mplebug.github.io/2023/08/06/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%B
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%97%A0%E6%A0%87%E7%AD%BE/" class="print-no-link">#无标签</a>
+        <a href="/tags/%E8%B4%A8%E6%95%B0/" class="print-no-link">#质数</a>
       
     </div>
   
@@ -369,8 +409,8 @@ href="https://s1mplebug.github.io/2023/08/06/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%B
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>AcWing算法基础课知识点汇总</div>
-      <div>https://s1mplebug.github.io/2023/08/06/AcWing算法基础课知识点汇总/</div>
+      <div>866.试除法判定质数</div>
+      <div>https://s1mplebug.github.io/2023/08/06/866-试除法判定质数/</div>
     </div>
     <div class="license-meta">
       
@@ -409,18 +449,12 @@ href="https://s1mplebug.github.io/2023/08/06/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%B
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/06/826-%E5%8D%95%E9%93%BE%E8%A1%A8/" title="826.单链表">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">826.单链表</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/06/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%A8%A1%E6%9D%BF/" title="二分查找模板">
-                        <span class="hidden-mobile">二分查找模板</span>
+                      <a href="/2023/08/06/826-%E5%8D%95%E9%93%BE%E8%A1%A8/" title="826.单链表">
+                        <span class="hidden-mobile">826.单链表</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -477,6 +511,12 @@ href="https://s1mplebug.github.io/2023/08/06/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%B
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -670,6 +710,49 @@ href="https://s1mplebug.github.io/2023/08/06/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%B
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
