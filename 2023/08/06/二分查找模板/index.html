@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s1mplebug.github.io/images/img-0.png">
 <meta property="article:published_time" content="2023-08-06T10:42:50.000Z">
-<meta property="article:modified_time" content="2023-08-06T12:45:31.627Z">
+<meta property="article:modified_time" content="2023-08-06T13:06:07.485Z">
 <meta property="article:tag" content="二分查找">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s1mplebug.github.io/images/img-0.png">
@@ -385,7 +385,8 @@ class="math inline">\(mid=\frac{l+r+1}{2}\)</span>​，若
 class="math inline">\([r,r]\)</span>，循环结束。若
 <code>check(mid)</code> 为假，则更新后的区间为<span
 class="math inline">\([l,l]\)</span>，循环结束。</p>
-<p><strong>寻找右边界的二分查找模板：</strong> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">right_bound</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>    <span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>        <span class="hljs-type">int</span> mid = (l+r+<span class="hljs-number">1</span>) &gt;&gt; <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(mid)) l = mid;<br>        <span class="hljs-keyword">else</span> r = mid - <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> l;<br>&#125;<br></code></pre></td></tr></table></figure></p>
+<p><strong>寻找右边界的二分查找模板：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">right_bound</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>    <span class="hljs-keyword">while</span> (l &lt; r) &#123;<br>        <span class="hljs-type">int</span> mid = (l+r+<span class="hljs-number">1</span>) &gt;&gt; <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(mid)) l = mid;<br>        <span class="hljs-keyword">else</span> r = mid - <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> l;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="寻找左边界的二分查找">1.1.2 寻找左边界的二分查找</h3>
 <p>类似<code>1.1.1</code>节中的分析，因为查找的是
 <strong>绿色区域的左边界</strong> ，所以先定义一个函数
@@ -421,12 +422,15 @@ class="math inline">\(x=\sqrt{2}\)</span>
 等）。由于此时左右两个指针也均为浮点数，所以我们不能直接判断
 <code>l == r</code>，而是判断 <code>r - l</code>
 是否小于预先设定的精度。</p>
-<p>模板如下： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">fsearch</span><span class="hljs-params">(<span class="hljs-type">double</span> l, <span class="hljs-type">double</span> r, <span class="hljs-type">double</span> eps)</span> </span>&#123;<br>    <span class="hljs-keyword">while</span>(r - l &gt; eps) &#123;<br>        <span class="hljs-type">double</span> mid = (l+r) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(mid)) r = mid;<br>        <span class="hljs-keyword">else</span> l = mid;<br>    &#125;<br>    <span class="hljs-keyword">return</span> l;<br>&#125;<br></code></pre></td></tr></table></figure></p>
-<p>一些注意事项： *
-若要求精确到小数点后<code>k</code>位，则<code>eps</code>取 <span
-class="math inline">\(10^{-(k+2)}\)</span> * 若 <span
-class="math inline">\(mid\geq x\)</span>，则 <code>check(mid)</code>
-为真，否则为假</p>
+<p>模板如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">fsearch</span><span class="hljs-params">(<span class="hljs-type">double</span> l, <span class="hljs-type">double</span> r, <span class="hljs-type">double</span> eps)</span> </span>&#123;<br>    <span class="hljs-keyword">while</span>(r - l &gt; eps) &#123;<br>        <span class="hljs-type">double</span> mid = (l+r) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(mid)) r = mid;<br>        <span class="hljs-keyword">else</span> l = mid;<br>    &#125;<br>    <span class="hljs-keyword">return</span> l;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>一些注意事项：</p>
+<ul>
+<li>若要求精确到小数点后<code>k</code>位，则<code>eps</code>取 <span
+class="math inline">\(10^{-(k+2)}\)</span></li>
+<li>若 <span class="math inline">\(mid\geq x\)</span>，则
+<code>check(mid)</code> 为真，否则为假</li>
+</ul>
 <h1 id="三使用stl进行二分查找">三、使用STL进行二分查找</h1>
 <h2 id="stdbinary_search">3.1 std::binary_search</h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">template</span>&lt; <span class="hljs-keyword">class</span> ForwardIt, <span class="hljs-keyword">class</span> T &gt;</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">binary_search</span><span class="hljs-params">( ForwardIt first, ForwardIt last, <span class="hljs-type">const</span> T&amp; value )</span></span>;<br>```    <br><br><br>该函数用来检查 `[first, last)` 区间内（该区间已排序）是否有数字 **等于** `value`，如果有返回 `<span class="hljs-literal">true</span>`，否则返回 `<span class="hljs-literal">false</span>`。<br><br>## <span class="hljs-number">3.2</span> std::lower_bound<br><br>```<span class="hljs-function">cpp</span><br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt; <span class="hljs-keyword">class</span> ForwardIt, <span class="hljs-keyword">class</span> T &gt;</span><br><span class="hljs-function">ForwardIt <span class="hljs-title">lower_bound</span><span class="hljs-params">( ForwardIt first, ForwardIt last, <span class="hljs-type">const</span> T&amp; value )</span></span>;<br></code></pre></td></tr></table></figure>
@@ -469,16 +473,6 @@ class="math inline">\(mid\geq x\)</span>，则 <code>check(mid)</code>
 
 <span class="category-chains">
   
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="category-chain-item">数据结构与算法</a>
-  
-  
-
-      </span>
-    
   
 </span>
 

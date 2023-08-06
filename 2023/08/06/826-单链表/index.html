@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://s1mplebug.github.io/images/img-1.png">
 <meta property="og:image" content="https://s1mplebug.github.io/images/img-2.png">
 <meta property="article:published_time" content="2023-08-06T11:30:11.000Z">
-<meta property="article:modified_time" content="2023-08-06T12:45:11.317Z">
+<meta property="article:modified_time" content="2023-08-06T13:05:12.805Z">
 <meta property="article:tag" content="链表">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s1mplebug.github.io/images/img-1.png">
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.4k 字
+          4.3k 字
         
       </span>
     
@@ -383,41 +383,48 @@ class="math inline">\(0\)</span>）。</li>
 <h2 id="代码">代码</h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">// head 表示头结点的下标</span><br><span class="hljs-comment">// e[i] 表示结点i的值</span><br><span class="hljs-comment">// ne[i] 表示结点i的next指针是多少</span><br><span class="hljs-comment">// idx 存储当前已经用到了哪个点</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> e[N], ne[N];<br><span class="hljs-type">int</span> head, idx;<br><br><span class="hljs-comment">// 初始化</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123; head = <span class="hljs-number">-1</span>, idx = <span class="hljs-number">0</span>; &#125;<br><br><span class="hljs-comment">// 单独处理头插</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">insert_head</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123; e[idx] = x; ne[idx] = head; head = idx; ++idx; &#125;<br><br><span class="hljs-comment">// 将value为x的结点插入到下标是k的结点后面</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> k, <span class="hljs-type">int</span> x)</span> </span>&#123; e[idx] = x; ne[idx] = ne[k]; ne[k] = idx; ++idx; &#125;<br><br><span class="hljs-comment">// 移除第k个结点后面的一个节点</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">remove</span><span class="hljs-params">(<span class="hljs-type">int</span> k)</span> </span>&#123; ne[k] = ne[ne[k]]; &#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n; cin &gt;&gt; n; <span class="hljs-built_in">init</span>(); <span class="hljs-comment">// init()初始化不要忘掉</span><br>    <span class="hljs-keyword">while</span>(n--) &#123;<br>        <span class="hljs-type">char</span> op; cin &gt;&gt; op;<br>        <span class="hljs-type">int</span> k, x;<br>        <span class="hljs-keyword">if</span>(op == <span class="hljs-string">&#x27;H&#x27;</span>) &#123;<br>            cin &gt;&gt; x;<br>            <span class="hljs-built_in">insert_head</span>(x);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(op == <span class="hljs-string">&#x27;D&#x27;</span>) &#123;<br>            cin &gt;&gt; k;<br>            <span class="hljs-keyword">if</span>(!k) head = ne[head];<br>            <span class="hljs-keyword">else</span> <span class="hljs-built_in">remove</span>(k<span class="hljs-number">-1</span>);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            cin &gt;&gt; k &gt;&gt; x;<br>            <span class="hljs-built_in">add</span>(k<span class="hljs-number">-1</span>, x);<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = head; i != <span class="hljs-number">-1</span>; i = ne[i]) cout &lt;&lt; e[i] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>    cout &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="本题思路分析">本题思路分析</h2>
-<p>在本题中，第<code>k</code>个插入的元素位置到底在哪里？本题首先需要理解两个问题：
-1. 删除第<code>k</code>个插入的数后面的数 2.
-在第<code>k</code>个插入的数后面插入一个数</p>
-<p>先解释一下什么叫第<code>k</code>个插入的元素： *
-把插入操作按先后排序，第<code>k</code>次执行插入操作的那个元素。 *
-注意：并不是链表中从前往后数第<code>k</code>个元素。</p>
+<p>在本题中，第<code>k</code>个插入的元素位置到底在哪里？本题首先需要理解两个问题：</p>
+<ol type="1">
+<li>删除第<code>k</code>个插入的数后面的数</li>
+<li>在第<code>k</code>个插入的数后面插入一个数</li>
+</ol>
+<p>先解释一下什么叫第<code>k</code>个插入的元素：</p>
+<ul>
+<li>把插入操作按先后排序，第<code>k</code>次执行插入操作的那个元素。</li>
+<li>注意：并不是链表中从前往后数第<code>k</code>个元素。</li>
+</ul>
 <p>在链表中删除指针指向的元素的后一个元素，或者在指针指向的某个元素后面插入一个新元素是很容易实现的。所以，只要弄明白第<code>k</code>个插入的数的指针在哪里，这两个问题就很容易解决。</p>
-<p>来分析一下插入操作： *
-链表为空的时候：<code>idx</code>的值为<code>0</code>， *
-插入第一个元素<code>a</code>后：<code>e[0] = a</code>，<code>idx</code>的值变为<code>1</code>，
-*
-插入第二个元素<code>b</code>后：<code>e[1] = b</code>，<code>idx</code>的值变为<code>2</code>，
-*
-插入第三个元素<code>c</code>后：<code>e[2] = c</code>，<code>idx</code>的值变为<code>3</code>，</p>
+<p>来分析一下插入操作：</p>
+<ul>
+<li>链表为空的时候：<code>idx</code>的值为<code>0</code>，</li>
+<li>插入第一个元素<code>a</code>后：<code>e[0] = a</code>，<code>idx</code>的值变为<code>1</code>，</li>
+<li>插入第二个元素<code>b</code>后：<code>e[1] = b</code>，<code>idx</code>的值变为<code>2</code>，</li>
+<li>插入第三个元素<code>c</code>后：<code>e[2] = c</code>，<code>idx</code>的值变为<code>3</code>，</li>
+</ul>
 <p>所以：<strong>第<code>k</code>个出入元素的索引值<code>k - 1</code>。</strong></p>
 <p>有人会说，如果中间删除了某些元素呢？</p>
-<p>在看一下伴随着删除操作的插入： *
-链表为空的时候：<code>idx</code>的值为<code>0</code>， *
-插入第一个元素<code>a</code>后：<code>e[0] = a</code>，<code>idx</code>的值变为<code>1</code>，
-*
-插入第二个元素<code>b</code>后：<code>e[1] = b</code>，<code>idx</code>的值变为<code>2</code>，
-*
-删除第一个插入的元素<code>a</code>：<code>head</code>变为<code>1</code>，<code>idx</code>不变，依旧为<code>2</code>。
-*
-删除第二个插入的元素<code>b</code>：<code>head</code>变为<code>2</code>，<code>idx</code>不变，依旧为<code>2</code>。
-*
-插入第三个元素<code>c</code>后：<code>e[2] = c</code>，<code>idx</code>的值变为<code>3</code>。</p>
+<p>在看一下伴随着删除操作的插入：</p>
+<ul>
+<li>链表为空的时候：<code>idx</code>的值为<code>0</code>，</li>
+<li>插入第一个元素<code>a</code>后：<code>e[0] = a</code>，<code>idx</code>的值变为<code>1</code>，</li>
+<li>插入第二个元素<code>b</code>后：<code>e[1] = b</code>，<code>idx</code>的值变为<code>2</code>，</li>
+<li>删除第一个插入的元素<code>a</code>：<code>head</code>变为<code>1</code>，<code>idx</code>不变，依旧为<code>2</code>。</li>
+<li>删除第二个插入的元素<code>b</code>：<code>head</code>变为<code>2</code>，<code>idx</code>不变，依旧为<code>2</code>。</li>
+<li>插入第三个元素<code>c</code>后：<code>e[2] = c</code>，<code>idx</code>的值变为<code>3</code>。</li>
+</ul>
 <p>所以删除操作并不改变第<code>k</code>个插入元素的索引。故第<code>k</code>个元素的索引一定是<code>k - 1</code>。</p>
-<p>对于本题输入样例： <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">10</span><br><span class="hljs-attribute">H</span> <span class="hljs-number">9</span><br><span class="hljs-attribute">I</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span><br><span class="hljs-attribute">D</span> <span class="hljs-number">1</span><br><span class="hljs-attribute">D</span> <span class="hljs-number">0</span><br><span class="hljs-attribute">H</span> <span class="hljs-number">6</span><br><span class="hljs-attribute">I</span> <span class="hljs-number">3</span> <span class="hljs-number">6</span><br><span class="hljs-attribute">I</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span><br><span class="hljs-attribute">I</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span><br><span class="hljs-attribute">I</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span><br><span class="hljs-attribute">D</span> <span class="hljs-number">6</span><br></code></pre></td></tr></table></figure></p>
+<p>对于本题输入样例：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">10</span><br><span class="hljs-attribute">H</span> <span class="hljs-number">9</span><br><span class="hljs-attribute">I</span> <span class="hljs-number">1</span> <span class="hljs-number">1</span><br><span class="hljs-attribute">D</span> <span class="hljs-number">1</span><br><span class="hljs-attribute">D</span> <span class="hljs-number">0</span><br><span class="hljs-attribute">H</span> <span class="hljs-number">6</span><br><span class="hljs-attribute">I</span> <span class="hljs-number">3</span> <span class="hljs-number">6</span><br><span class="hljs-attribute">I</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span><br><span class="hljs-attribute">I</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span><br><span class="hljs-attribute">I</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span><br><span class="hljs-attribute">D</span> <span class="hljs-number">6</span><br></code></pre></td></tr></table></figure>
 <p>我们给出操作图示：</p>
-<p><img src="/images/img-1.png" srcset="/img/loading.gif" lazyload /></p>
-<p>最终链表结果如图： <figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">6 </span><span class="hljs-number">4</span> <span class="hljs-number">6</span> <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure></p>
 <figure>
-<img src="/images/img-2.png" srcset="/img/loading.gif" lazyload alt="upload successful" />
-<figcaption aria-hidden="true">upload successful</figcaption>
+<img src="/images/img-1.png" srcset="/img/loading.gif" lazyload alt="数组模拟链表过程" />
+<figcaption aria-hidden="true">数组模拟链表过程</figcaption>
+</figure>
+<p>最终链表结果如图：</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">6 </span><span class="hljs-number">4</span> <span class="hljs-number">6</span> <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+<figure>
+<img src="/images/img-2.png" srcset="/img/loading.gif" lazyload alt="完整单链表" />
+<figcaption aria-hidden="true">完整单链表</figcaption>
 </figure>
 <h2 id="单链表知识点问题汇总">单链表知识点问题汇总</h2>
 <h3 id="head是什么它的具体作用又是啥">1.
@@ -428,9 +435,11 @@ head是什么？它的具体作用又是啥？</h3>
 <h3 id="关于eidxneidx和idx的问题">3.
 关于e[idx]、ne[idx]和idx的问题？</h3>
 <p><code>idx</code>可以理解为一个结点！！准确来说是某个结点的唯一标识，也是链表中结点的索引下标。</p>
-<p><strong>结点</strong>：链表的元素，含<code>e[idx]</code>，<code>ne[idx]</code>两个部分：
-1. <code>e[idx]</code>：结点编号为<code>idx</code>对应的节点值 2.
-<code>ne[idx]</code>：结点编号为<code>idx</code>对应的下一个结点的编号</p>
+<p><strong>结点</strong>：链表的元素，含<code>e[idx]</code>，<code>ne[idx]</code>两个部分：</p>
+<ol type="1">
+<li><code>e[idx]</code>：结点编号为<code>idx</code>对应的节点值</li>
+<li><code>ne[idx]</code>：结点编号为<code>idx</code>对应的下一个结点的编号</li>
+</ol>
 <p>要明白<code>idx</code>只是记录当前的操作的位置，一般实现的链表<code>idx</code>是乱序的（前后的节点的数组下标不需要连续【不理解，可以带入样例观察】），需要通过当前的<code>ne[i]</code>找到下一个<code>idx</code>。这也是两者的联系。</p>
 <h3 id="对于删除头节点headnehead的操作">4.
 对于删除头节点：head=ne[head]的操作？</h3>
@@ -452,12 +461,13 @@ id="为什么每次循环输入的字符op用cin-op可以ac而scanfc-op结果就
 根据1、3和5应该也就不难理解这句话了吧</h3>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = head; i != <span class="hljs-number">-1</span>; i = ne[i]) cout &lt;&lt; e[i] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br></code></pre></td></tr></table></figure>
 <h3 id="为何不用结构体方式构造链表">9. 为何不用结构体方式构造链表？</h3>
-<p>链表由节点构成，每个节点保存了<strong>值</strong>和<strong>下一个元素的位置</strong>这两个信息。节点的表示形式如下：
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span>&#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> val;<br>    Node* next;<br>&#125;;<br></code></pre></td></tr></table></figure></p>
-<p>这样构造出链表节点的是一个好方法，也是许多人一开始就学到的。使用这种方法，在创建一个值为<code>x</code>新节点的时候，语法是：
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Node* node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>();<br>node-&gt;val = x<br></code></pre></td></tr></table></figure></p>
-<p>看一下创建新节点的代码的第一行： <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">Node</span><span class="hljs-title">* node</span> = new <span class="hljs-keyword">Node</span><span class="hljs-title">();，</span><br></code></pre></td></tr></table></figure>
-中间有一个<code>new</code>关键字来为新对象分配空间。<code>new</code>的底层涉及内存分配，调用构造函数，指针转换等多种复杂且费时的操作。在平时的工程代码中，不会涉及上万次的<code>new</code>操作，所以这种结构是一种见代码知意的好结构。</p>
+<p>链表由节点构成，每个节点保存了<strong>值</strong>和<strong>下一个元素的位置</strong>这两个信息。节点的表示形式如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span>&#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> val;<br>    Node* next;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>这样构造出链表节点的是一个好方法，也是许多人一开始就学到的。使用这种方法，在创建一个值为<code>x</code>新节点的时候，语法是：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Node* node = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Node</span>();<br>node-&gt;val = x<br></code></pre></td></tr></table></figure>
+<p>看一下创建新节点的代码的第一行：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-keyword">Node</span><span class="hljs-title">* node</span> = new <span class="hljs-keyword">Node</span><span class="hljs-title">();，</span><br></code></pre></td></tr></table></figure>
+<p>中间有一个<code>new</code>关键字来为新对象分配空间。<code>new</code>的底层涉及内存分配，调用构造函数，指针转换等多种复杂且费时的操作。在平时的工程代码中，不会涉及上万次的<code>new</code>操作，所以这种结构是一种见代码知意的好结构。</p>
 <p>但是在算法比赛中，经常碰到操作在<code>10</code>万级别的链表操作，如果使用结构体这种操作，是无法在算法规定时间完成的。所以，在算法比赛这种有严格的时间要求的环境中，不能频繁使用<code>new</code>操作。也就不能使用结构体来实现数组。</p>
 <h2 id="参考文章">参考文章</h2>
 <ul>
@@ -488,16 +498,6 @@ Acwing.826 单链表</a></li>
 
 <span class="category-chains">
   
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="category-chain-item">数据结构与算法</a>
-  
-  
-
-      </span>
-    
   
 </span>
 
