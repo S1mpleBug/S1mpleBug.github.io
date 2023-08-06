@@ -16,21 +16,21 @@
   <meta name="author" content="">
   <meta name="keywords" content="">
   
-    <meta name="description" content="汇总AcWing题目题解以及知识点总结，用于个人复习回顾。">
+    <meta name="description" content="时&#x2F;空限制：1s &#x2F; 64MB 题目描述 给定\(n\)个正整数\(a_i\)，将每个数分解质因数，并按照质因数从小到大的顺序输出每个质因数的底数和指数。 输入格式 第一行包含整数\(n\)。 接下来\(n\)行，每行包含一个正整数\(a_i\)。 输出格式 对于每个正整数\(a_i\)，按照从小到大的顺序输出其分解质因数后，每个质因数的底数和指数，每个底数和指数占一行。 每个正整数的质因数全部输">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AcWing算法基础课知识点汇总">
-<meta property="og:url" content="https://s1mplebug.github.io/2023/08/06/AcWing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:title" content="867.分解质因数">
+<meta property="og:url" content="https://s1mplebug.github.io/2023/08/06/867-%E5%88%86%E8%A7%A3%E8%B4%A8%E5%9B%A0%E6%95%B0/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="汇总AcWing题目题解以及知识点总结，用于个人复习回顾。">
+<meta property="og:description" content="时&#x2F;空限制：1s &#x2F; 64MB 题目描述 给定\(n\)个正整数\(a_i\)，将每个数分解质因数，并按照质因数从小到大的顺序输出每个质因数的底数和指数。 输入格式 第一行包含整数\(n\)。 接下来\(n\)行，每行包含一个正整数\(a_i\)。 输出格式 对于每个正整数\(a_i\)，按照从小到大的顺序输出其分解质因数后，每个质因数的底数和指数，每个底数和指数占一行。 每个正整数的质因数全部输">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-06T11:24:18.000Z">
-<meta property="article:modified_time" content="2023-08-06T12:48:59.419Z">
-<meta property="article:tag" content="无标签">
+<meta property="article:published_time" content="2023-08-06T12:52:02.000Z">
+<meta property="article:modified_time" content="2023-08-06T12:54:47.239Z">
+<meta property="article:tag" content="质数分解">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>AcWing算法基础课知识点汇总 - </title>
+  <title>867.分解质因数 - </title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -223,7 +223,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="AcWing算法基础课知识点汇总"></span>
+            <span id="subtitle" data-typed-text="867.分解质因数"></span>
           
         </div>
 
@@ -234,7 +234,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-06 19:24" pubdate>
+        <time datetime="2023-08-06 20:52" pubdate>
           2023年8月6日 晚上
         </time>
       </span>
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          178 字
+          1.9k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          2 分钟
+          17 分钟
         
       </span>
     
@@ -294,29 +294,115 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">AcWing算法基础课知识点汇总</h1>
+            <h1 id="seo-header">867.分解质因数</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="算法知识点讲解">算法知识点讲解</h2>
-<ul>
-<li><a
-href="https://s1mplebug.github.io/2023/08/06/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%A8%A1%E6%9D%BF/">二分查找模板</a></li>
-</ul>
-<h2 id="题目">题目</h2>
-<h3 id="第二讲-数据结构">第二讲 数据结构</h3>
-<ul>
-<li><a
-href="https://s1mplebug.github.io/2023/08/06/826-%E5%8D%95%E9%93%BE%E8%A1%A8/">单链表</a></li>
-</ul>
-<h3 id="第四讲-数学知识">第四讲 数学知识</h3>
-<ul>
-<li><a
-href="https://s1mplebug.github.io/2023/08/06/866-%E8%AF%95%E9%99%A4%E6%B3%95%E5%88%A4%E5%AE%9A%E8%B4%A8%E6%95%B0/">试除法判定质数</a></li>
-<li><a href="">分解质因数</a></li>
-<li><a href="">质数筛</a></li>
-</ul>
+                <p>时/空限制：1s / 64MB</p>
+<h2 id="题目描述">题目描述</h2>
+<p>给定<span class="math inline">\(n\)</span>个正整数<span
+class="math inline">\(a_i\)</span>，将每个数分解质因数，并按照质因数从小到大的顺序输出每个质因数的底数和指数。</p>
+<h2 id="输入格式">输入格式</h2>
+<p>第一行包含整数<span class="math inline">\(n\)</span>。</p>
+<p>接下来<span
+class="math inline">\(n\)</span>行，每行包含一个正整数<span
+class="math inline">\(a_i\)</span>。</p>
+<h2 id="输出格式">输出格式</h2>
+<p>对于每个正整数<span
+class="math inline">\(a_i\)</span>，按照从小到大的顺序输出其分解质因数后，每个质因数的底数和指数，每个底数和指数占一行。</p>
+<p>每个正整数的质因数全部输出完毕后，输出一个空行。</p>
+<h2 id="数据范围">数据范围</h2>
+<p><span class="math inline">\(1 \le n \le 100\)</span>, <span
+class="math inline">\(1 \le a_i \le 2\times10^9\)</span></p>
+<h2 id="输入样例">输入样例</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">2<br>6<br>8<br></code></pre></td></tr></table></figure>
+<h2 id="输出样例">输出样例</h2>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">2 </span><span class="hljs-number">1</span><br><span class="hljs-symbol">3 </span><span class="hljs-number">1</span><br><br><span class="hljs-symbol">2 </span><span class="hljs-number">3</span><br><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>解释：第一行输入 <span
+class="math inline">\(2\)</span>，说明接下来两行输入两个数，第一个输入是
+<span
+class="math inline">\(6\)</span>，输出结果为两行，每行的含义是：底数为数字
+<span class="math inline">\(2\)</span>，指数为 <span
+class="math inline">\(1\)</span>，底数为数字 <span
+class="math inline">\(3\)</span>，指数为 <span
+class="math inline">\(1\)</span>，即 <span class="math inline">\(6 = 2^1
+\times 3^1\)</span>。第二个输入是 <span
+class="math inline">\(8\)</span>，则输出结果为一行，含义是：底数为数字
+<span class="math inline">\(2\)</span>，指数为 <span
+class="math inline">\(3\)</span>，即 <span class="math inline">\(8 =
+2^3\)</span>。</p>
+</blockquote>
+<h2 id="代码">代码</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 暴力枚举</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">divide</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; ++i) &#123;<br>		<span class="hljs-keyword">if</span>(n % i == <span class="hljs-number">0</span>) &#123;<br>			<span class="hljs-type">int</span> s = <span class="hljs-number">0</span>;<br>			<span class="hljs-keyword">while</span>(n % i == <span class="hljs-number">0</span>) &#123;<br>				n /= i;<br>				++s;<br>			&#125;<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d %d\n&quot;</span>, i, s);<br>		&#125;<br>	&#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>前文 「<a
+href="https://s1mplebug.github.io/2023/08/06/866-%E8%AF%95%E9%99%A4%E6%B3%95%E5%88%A4%E5%AE%9A%E8%B4%A8%E6%95%B0/">866.试除法判定质数</a>」谈及到「质数性质」可用于优化本题，可知：输入数字
+<span class="math inline">\(n\)</span> 中最多只包含一个大于 <span
+class="math inline">\(\sqrt{n}\)</span>
+的质因子（假设某数分解出来的两个质因子均大于 <span
+class="math inline">\(\sqrt{n}\)</span>，则乘积就会大于 <span
+class="math inline">\(n\)</span>，那这显然不成立）。因此枚举时，可先枚举
+<span class="math inline">\(\le \sqrt{n}\)</span>
+的质因子，优化代码如下，将<code>for</code>循环范围改至<code>n/i</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 优化版本O(sqrt(n))</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">divide</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n / i; ++i) &#123; <span class="hljs-comment">// 优化为 i &lt;= n / i</span><br>		<span class="hljs-keyword">if</span>(n % i == <span class="hljs-number">0</span>) &#123;<br>			<span class="hljs-type">int</span> s = <span class="hljs-number">0</span>;<br>			<span class="hljs-keyword">while</span>(n % i == <span class="hljs-number">0</span>) &#123;<br>				n /= i;<br>				++s;<br>			&#125;<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d %d\n&quot;</span>, i, s);<br>		&#125;<br>	&#125;<br>	<span class="hljs-comment">// 质数最多存在一个大于sqrt(n)的质因子</span><br>	<span class="hljs-comment">// 例如：6 = 2 * 3，sqrt(6) = 2.44949，存在一个大于sqrt(6)的质因子3</span><br>    <span class="hljs-keyword">if</span>(n &gt; <span class="hljs-number">1</span>) <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d %d\n&quot;</span>, n, <span class="hljs-number">1</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>本题优化版本相比「<a
+href="https://s1mplebug.github.io/2023/08/06/866-%E8%AF%95%E9%99%A4%E6%B3%95%E5%88%A4%E5%AE%9A%E8%B4%A8%E6%95%B0/">866.试除法判定质数</a>」优化版本，时间复杂度不同，<code>866</code>题优化版本时间复杂度一定为
+<span
+class="math inline">\(\text{O}(\sqrt{n})\)</span>；本题优化版本有可能当
+<span class="math inline">\(i = 2\)</span>
+成立后，进入<code>while</code>执行完毕，直接跳出循环，导致最快时间复杂度为
+<span class="math inline">\(\text{O}({\log
+n})\)</span>，因此本题优化版本时间复杂度介于 <span
+class="math inline">\(\text{O}({\log n})\)</span> 和 <span
+class="math inline">\(\text{O}(\sqrt{n})\)</span> 之间。</p>
+<table>
+
+<thead>
+<tr class="header">
+<th style="text-align: left;">算法</th>
+<th style="text-align: center;">时间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">判断是否为质数「<a
+href="https://s1mplebug.github.io/2023/08/06/866-%E8%AF%95%E9%99%A4%E6%B3%95%E5%88%A4%E5%AE%9A%E8%B4%A8%E6%95%B0/">866.试除法判定质数</a>」优化版本</td>
+<td style="text-align: center;"><span
+class="math inline">\(\text{O}(\sqrt{n})\)</span></td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;">分解某数为多个质因数乘积（本题优化版本）</td>
+<td style="text-align: center;">介于 <span
+class="math inline">\(\text{O}({\log n})\)</span> 和 <span
+class="math inline">\(\text{O}(\sqrt{n})\)</span> 之间</td>
+</tr>
+</tbody>
+</table>
+<h2 id="补充">补充</h2>
+<ol type="1">
+<li>算术基本定理（唯一分解定理） <span
+class="math inline">\(\forall\)</span> 大于 <span
+class="math inline">\(1\)</span> 的正整数 <span
+class="math inline">\(N\)</span>，若 <span
+class="math inline">\(N\)</span>
+不为质数，都可以唯一分解成有限个质数的乘积。<span
+class="math inline">\(N = P_1^{a_1} \times P_2^{a_2} \times ... \times
+P_n^{a_n}\)</span>，这里 <span class="math inline">\(P_1 &lt; P_2 &lt;
+... &lt; P_n\)</span> 均为质数，指数 <span
+class="math inline">\(a_i\)</span> 是正整数。</li>
+<li>算法思路：枚举 <span class="math inline">\(i\)</span> 从 <span
+class="math inline">\(2\)</span> 到 <span
+class="math inline">\(\sqrt{n}\)</span>，如果
+<code>n % i == 0</code>，就一直用 <span class="math inline">\(n\)</span>
+除以 <span class="math inline">\(i\)</span>，求出来 <span
+class="math inline">\(i\)</span> 的指数，并用 <span
+class="math inline">\(s\)</span> 来记录；若最终 <span
+class="math inline">\(n &gt; 1\)</span>，则此时的 <span
+class="math inline">\(n\)</span> 是大于 <span
+class="math inline">\(\sqrt{n}\)</span> 的那个唯一的质因数；</li>
+</ol>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4R6NZH87R3"></script>
 <script>
@@ -344,7 +430,7 @@ href="https://s1mplebug.github.io/2023/08/06/866-%E8%AF%95%E9%99%A4%E6%B3%95%E5%
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%97%A0%E6%A0%87%E7%AD%BE/" class="category-chain-item">无标签</a>
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
   
   
 
@@ -359,7 +445,7 @@ href="https://s1mplebug.github.io/2023/08/06/866-%E8%AF%95%E9%99%A4%E6%B3%95%E5%
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%97%A0%E6%A0%87%E7%AD%BE/" class="print-no-link">#无标签</a>
+        <a href="/tags/%E8%B4%A8%E6%95%B0%E5%88%86%E8%A7%A3/" class="print-no-link">#质数分解</a>
       
     </div>
   
@@ -371,8 +457,8 @@ href="https://s1mplebug.github.io/2023/08/06/866-%E8%AF%95%E9%99%A4%E6%B3%95%E5%
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>AcWing算法基础课知识点汇总</div>
-      <div>https://s1mplebug.github.io/2023/08/06/AcWing算法基础课知识点汇总/</div>
+      <div>867.分解质因数</div>
+      <div>https://s1mplebug.github.io/2023/08/06/867-分解质因数/</div>
     </div>
     <div class="license-meta">
       
@@ -411,18 +497,12 @@ href="https://s1mplebug.github.io/2023/08/06/866-%E8%AF%95%E9%99%A4%E6%B3%95%E5%
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/06/867-%E5%88%86%E8%A7%A3%E8%B4%A8%E5%9B%A0%E6%95%B0/" title="867.分解质因数">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">867.分解质因数</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/06/Leetcode%E9%A2%98%E8%A7%A3%E7%9B%AE%E5%BD%95/" title="Leetcode题解目录">
-                        <span class="hidden-mobile">Leetcode题解目录</span>
+                      <a href="/2023/08/06/AcWing%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/" title="AcWing算法基础课知识点汇总">
+                        <span class="hidden-mobile">AcWing算法基础课知识点汇总</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -479,6 +559,12 @@ href="https://s1mplebug.github.io/2023/08/06/866-%E8%AF%95%E9%99%A4%E6%B3%95%E5%
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -672,6 +758,49 @@ href="https://s1mplebug.github.io/2023/08/06/866-%E8%AF%95%E9%99%A4%E6%B3%95%E5%
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
